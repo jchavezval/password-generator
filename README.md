@@ -3,7 +3,7 @@
 Password Generator:
 The functionality of the pw-generator works great! Below are the steps required for a PW.
 
-Step 1. Enter a valid length for the PW generator. A number between 8 to 128 characters is requested. (see image pw-lenght.JPG for reference.)
+Step 1. Enter a valid length for the PW generator. A number between 8 to 128 characters is requested. (see image pw-lenght.JPG for reference.) 
 
 Step 2. User is asked if pw should contain any uppercase characters. (see image uppercase-prompt for reference)
 
