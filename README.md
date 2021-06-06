@@ -1,20 +1,58 @@
-# password-generator
+# JavaScript: Password Generator
 
-Password Generator:
-The functionality of the pw-generator works great! Below are the steps required for a PW.
+The application generates a random password that matches user criteria and then prints the result in a textarea element.
+</br>
+</br>
 
-<<<<<<< HEAD
-Step 1. Enter a valid length for the PW generator. A number between 8 to 128 characters is requested. (see image pw-lenght.JPG for reference.) 
-=======
-Step 1. Enter a valid length for the PW generator. A number between 8 to 128 characters is requested. (see PW-Generator Images/pw lenght.JPG for reference.)
->>>>>>> a207eff45137b8631a7dfe9e6b94af4e21ce100b
+## How It Looks:
 
-Step 2. User is asked if pw should contain any uppercase characters. (see PW-Generator Images/uppercase-prompt for reference)
+![password generator demo](./Assets/03-javascript-homework-demo.png)
+</br>
+</br>
+## Links
+Checkout: [Deployed Application Here](https://jchavezval.github.io/password-generator/)
 
-Step 3. User is asked if pw should contain any lowercase characters. (see PW-Generator Images/lowercase-prompt for reference).
+Checkout: [Git Hub Repo Here](https://github.com/jchavezval/password-generator.git)
+</br>
+</br>
 
-Step 4. User is asked if pw should contain any special characters !$&.. (see PW-Generator Images/specialcase-prompt for reference).
+## How It Works:
 
-Step 5. User is asked if pw should contain any numbers characters !$&.. (see PW-Generator Images/numbers-prompt for reference).
+`1.` Click the Generate Password button to run `writePassword()`
 
-Step 6. Shows the pw generated based on user entered data. (see PW-Generator Images/pw-generated for reference.)
+`2.` `writePassword()` sets 'password' equal to the result of step 3
+
+`3.` `generatePassword()`
+
+1. Create a blank array: `passwordArray`
+
+2. Prompt user to specify password length between 8 and 128 characters and store result as `promptLength`
+
+3. Repeat previous step until answer is valid
+
+4. `selectCharacters()` 
+    1. Ask user if they would like to include each of the following character types:
+        - Lowercase (abc...)
+        - Uppercase (ABC...)
+        - Numeric (123...)
+        - Special (!@#...)
+
+    2. Store user selections and set array `use.characters` to contain all characters of only the selected types.
+
+    3. Repeat `selectCharacters()` until user chooses at least one character type, confirms her choices.
+
+5. For `promptLength` less the number of selected character types:
+
+    1. Randomly select a character from `use.characters`
+
+    2. Insert that character to the end of the `passwordArray`
+
+    3. Require selected characters are used by adding one character to the end of `passwordArray` from each selected type
+
+6. [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) `passwordArray`
+```
+this randomly locates the required characters added to end of the `password array` in step 5.3
+```
+7. Convert the `passwordArray` to a Sting and return value to `generatePassword()`
+
+`4.` Display the password to user in a textarea
